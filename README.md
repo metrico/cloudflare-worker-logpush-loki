@@ -1,6 +1,6 @@
-# Logpush to Grafana Loki Endpoint
+# Logpush to Loki Endpoint
 
-- [Logpush to Grafana Loki Endpoint](#logpush-to-grafana-loki-endpoint)
+- [Logpush to Loki Endpoint](#logpush-to-grafana-loki-endpoint)
   - [Create the Worker](#create-the-worker)
   - [Logpush](#logpush)
     - [Get Log Fields](#get-log-fields)
@@ -8,7 +8,7 @@
   - [Debugging](#debugging)
   - [Todo / Improvements](#todo--improvements)
 
-You can configure Cloudflare Logpush to send Logs to any [HTTP destination](https://developers.cloudflare.com/logs/get-started/enable-destinations/http/), so let's send some logs to [Grafana Loki](https://grafana.com/oss/loki/).
+You can configure Cloudflare Logpush to send Logs to any [HTTP destination](https://developers.cloudflare.com/logs/get-started/enable-destinations/http/), so let's send some logs to [qryn](https://qryn.dev/) using the Loki format.
 
 This Worker takes the incoming Logpush JSON Format and transforms it into something Loki understands:
 
@@ -19,7 +19,7 @@ This Worker takes the incoming Logpush JSON Format and transforms it into someth
 ## Create the Worker
 
 - clone this repo
-- update `wrangler.toml` to point to your Grafana Loki HTTP Endpoint
+- update `wrangler.toml` to point to your Loki/LogQL HTTP Endpoint
 - feel free to make other adjustments in `wrangler.toml` to your liking
 - deploy the worker:
 
@@ -73,7 +73,7 @@ curl --location --request POST 'https://api.cloudflare.com/client/v4/zones/<zone
 - **destination_conf** enter your own workers domain in there, but **keep** the `?header_Authorization=Basic%20`, just update the `Authorization` header with your own username and password
 - Update the **job** query string to the stream name you want to see in Grafana later on.
 
-If everything went according to plan, you should see your new Logpush Job in [the Analytics => Log tab](https://dash.cloudflare.com/?to=/:account/:zone/analytics/logs) as well as in Grafana Loki. This is how it could look like.
+If everything went according to plan, you should see your new Logpush Job in [the Analytics => Log tab](https://dash.cloudflare.com/?to=/:account/:zone/analytics/logs) as well as in Loki/LogQL. This is how it could look like.
 
 ## Debugging
 
