@@ -1,6 +1,9 @@
-# Logpush to Loki Endpoint
+<a href="https://qryn.dev" target="_blank">
+<img src='https://user-images.githubusercontent.com/1423657/218816262-e0e8d7ad-44d0-4a7d-9497-0d383ed78b83.png' style="margin-left:-10px" width=350/>
+</a>
 
-- [Logpush to Loki Endpoint](#logpush-to-grafana-loki-endpoint)
+# Logpush to [qryn](https://qryn.dev)
+
   - [Create the Worker](#create-the-worker)
   - [Logpush](#logpush)
     - [Get Log Fields](#get-log-fields)
